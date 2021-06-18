@@ -15,27 +15,22 @@ function findMinValue(arr){
 //Create a function with an array of numbers as its parameter. This function will return a new array with the numbers sorted from least to greatest value.
 
 function sortLeastToGreatest(arr){
-  let oldArr = arr;
+  let oldArr = arr.slice(); // so you don't destroy original array
    let newArr=[];
    let min;
    let length = oldArr.length;
    let i;
 
   for(i=0; i<length; i++){
-     min = findMinValue(oldArr);
-     console.log(min , i);
-    newArr.push(min);
-    oldArr = oldArr.splice(oldArr.indexOf(min), 1);
-   // console.log(newArr);
-   // console.log(oldArr);
+     min = findMinValue(oldArr); // find the min
+    newArr.push(min); //add the min to the end
+    oldArr.splice(oldArr.indexOf(min), 1);//fixme how do i remove one element here
   }
-   console.log(oldArr);
-
   return newArr;
 }
 
 sortLeastToGreatest(nums1);
-console.log(nums1);
+//console.log(nums1);
 
 /*Within the function:
 a) Define a new, empty array to hold the final sorted numbers.
